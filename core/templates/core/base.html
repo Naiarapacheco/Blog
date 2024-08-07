@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+    <title>Blog | {% block title %}{% endblock %} </title>
+    <style>
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        nav.navbar {
+            height: 5rem !important;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px 0 rgba(0, 0, 0, .06) !important;
+        }
+
+        .section {
+            flex: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container">
+
+            <div class="navbar-brand">
+                <a class="navbar-item" href="/">
+                    Blog <strong>Naiara</strong>
+                </a>
+                <span class="navbar-burger burger" data-target="navbarMenu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </span>
+            </div>
+
+            <div id="navbarMenu" class="navbar-menu">
+                <div class="navbar-end">
+                    <div class="navbar-item">
+                        <form method="get">
+                            <div class="control has-icons-left">
+                                <input class="input is-rounded">
+                                <span class="icon is-left">
+                                    <i class="fa fa-search"></i>
+                                </span>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="navbar-item has-dropdown is-hoverable">
+                        <a class="navbar-link">
+                            Tecnologias
+                        </a>
+
+                        <div class="navbar-dropdown">
+                            <a class="navbar-item">
+                                Javascript
+                            </a>
+                            <a class="navbar-item">
+                                Typescript
+                            </a>
+                            <a class="navbar-item">
+                                Node JS
+                            </a>
+                            <a class="navbar-item">
+                                Angular
+                            </a>
+                            <a class="navbar-item">
+                                React
+                            </a>
+                            <hr class="navbar-divider">
+                            <a class="navbar-item"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="section">
+        <div class="container">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </section>
+
+    <footer class="footer px-2">
+        <div class="content has-text-centered mt-6">
+            <p>
+                Copyright (c) <span id="year"></span> - Blog
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        var yearElement = document.getElementById('year')
+        var current_year = new Date().getFullYear();
+
+        yearElement.textContent = current_year;
+    </script>
+
+</body>
+
+</html>
